@@ -31,6 +31,7 @@ var shape4Sizeh = 70;
 var shape5Sizew = 190;
 var shape5Sizeh = 70;
 var shape6Size = 90;
+var shape7Size = 55
 var shape9Sizew = 50;
 var shape9Sizeh = 190;
 //images and font
@@ -114,6 +115,7 @@ function draw()
     textFont(newFont);
     textSize(36);
     text('Ben Vanderbosch', 10, 50);
+    text('Pacman with shapes', 10, 50);
     text("Time Passed: " + timerText, 550, 50);
 
 //images
@@ -237,11 +239,11 @@ if(redghostX >= width - redghost.width || redghostX  <= redghost.width/8)
 
         // shape 6
         fill(redColor6,greenColor6,blueColor6);
-        arc(shape6X, shape6Y, shape6Size, 90, 90, PI + QUARTER_PI);
+        rect(shape6X, shape6Y, shape6Size);
 
         // shape 7
         fill(redColor7,greenColor7,blueColor7);
-        quad(shape7X, shape7Y, 386, 220, 569, 263, 530, 276);
+        square(shape7X, shape7Y, shape7Size);
 
         // shape 8
         fill(redColor8,greenColor8,blueColor8);
@@ -256,7 +258,7 @@ if(redghostX >= width - redghost.width || redghostX  <= redghost.width/8)
         strokeWeight(7);
         line(shape10X, shape10Y, 185, 475);
 }
-
+//speed change every 5s
 function changeSpeed() {
       timerText++;
       if (timerText % 5 == 0) {
