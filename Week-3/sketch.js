@@ -52,8 +52,8 @@ var timerText = 0;
 //preload
 function preload() {
   blueghost = loadImage('assets/blueghost.png');
-  orangeghost = loadImage('assets/minion.png');
-  redghost = loadImage('assets/fire.png');
+  orangeghost = loadImage('assets/orangeghost.png');
+  redghost = loadImage('assets/redghost.png');
   newFont = loadFont('assets/Oswald.ttf');
 }
 //setup
