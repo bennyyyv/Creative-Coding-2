@@ -13,22 +13,23 @@ var runleftresult;
 var counter = 0;
 var myInterval;
 var index = 0;
-
+var bush;
 //preload
 function preload () {
   idleresult = loadStrings('assets/idle.txt')
   runresult = loadStrings('assets/run.txt')
   runleftresult = loadStrings('assets/runleft.txt')
+  bush = loadStrings('assets/static.txt');
 }
 
 //setup
 function setup () {
   createCanvas(800, 600);
-
 //idleresult
 for (var i = 0; i < idleresult.length; i++)
 {
-  ninjaIdle.push(new imageclass('assets/' + result[i], 0, 0));
+  ninjaIdle.push(new imageclass('assets/' + idleresult[i], 0, 0));
+  animation[i] = ninjaIdle[i].getImage();
 }
 
 //runresult & runleftresult
@@ -48,66 +49,85 @@ myInterval = setInterval(incrementIndex, 50);
 }
 
 //draw
-function draw() {
+function draw()
+{
 background(120);
-
 //key presses
-if (keyIsPressed) {
+if (keyIsPressed)
+{
   clearInterval(myInterval);
   myInterval = null;
 
   index++;
-  if (index > 3) {
+  if (index > 3)
+  {
     incrementIndex();
     index = 0;
   }
-  if (key == "d") {
+
+  if (key == "d")
+  {
     currentAnimation = runanimation;
     currentObjects = ninjaRun;
 
-    if (counter >= currentAnimation.length) {
+    if (counter >= currentAnimation.length)
+    {
       counter = 0;
     }
+
   currentObjects[counter].setX(currentObjects[counter].getX() + 2);
 
-  for (var i = 0; i < ninjaRunLeft.length; i++) {
+  for (var i = 0; i < ninjaRunLeft.length; i++)
+  {
     ninjaRunLeft[i].setX(currentObjects[0].getX());
   }
+
   ninjaRun = currentObjects;
   }
-  else if (key == "a") {
+
+  else if (key == "a")
+  {
     currentAnimation = runlefanimation;
     currentObjects = ninjaRunLeft;
 
-    if (counter >= currentAnimation.length) {
+    if (counter >= currentAnimation.length)
+    {
       counter = 0;
     }
     currentObjects[counter].setX(currentObjects[counter].getX() - 2);
 
-    for (var i = 0; i < ninjaRun.length; i++) {
+    for (var i = 0; i < ninjaRun.length; i++)
+    {
       ninjaRun[i].setX(currentObjects[0].getX());
     }
-    else {
-      if (myInterval == null) {
+
+    ninjaRunLeft = currentObjects;
+  }
+
+  for (var i = 0; i < ninjaIdle.length; i++)
+    ninjaIdle[i].setX(currentObjects[0].getX());
+
+}
+    else
+    {
+      if (myInterval == null)
+      {
         myInterval = setInterval(incrementIndex, 50);
       }
       currentObjects = ninjaIdle;
-      currentAnimation = idleanimation;
+      currentAnimation = animation;
     }
     image(currentAnimation[counter], currentObjects[counter].getX(), currentObjects[counter].getY());
   }
 
+
   //incrementIndex
 
-function incrementIndex() {
+function incrementIndex()
+{
   counter += 1;
-  if (counter >= currentObjects.length) {
+  if (counter >= currentObjects.length)
+  {
     counter = 0;
   }
-}
-}
-
-
-
-
 }
