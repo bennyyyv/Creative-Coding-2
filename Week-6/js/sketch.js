@@ -14,7 +14,7 @@ function setup() {
     ninjaObjects.addAnimation('idle', result[0], result[result.length-1]);
     ninjaObjects.addAnimation('run', runresult[0], runresult[runresult.length-1]);
 
-    bush = createSprite(700, 300);
+    bush = createSprite(700, 300, 10, 10);
     //compact way to add an image
     bush.addImage(loadImage('assets/bush.png'));
 }
