@@ -10,7 +10,7 @@ function preload() {
 
 function setup() {
     createCanvas(800,600);
-    ninjaObjects = createSprite(300, 250);
+    ninjaObjects = createSprite(300, 250, 50, 100);
     ninjaObjects.addAnimation('idle', result[0], result[result.length-1]);
     ninjaObjects.addAnimation('run', runresult[0], runresult[runresult.length-1]);
 
@@ -23,6 +23,51 @@ function setup() {
 function draw()
 {
     background(120);
+
+    if(keyDown('w'))
+    {
+      ninjaObjects.changeAnimation('run');
+      ninjaObjects.velocity.y += .5;
+      if(ninjaObjects.collide(bush))
+      {
+        ninjaObjects.changeAnimation('idle');
+      }
+    }
+    else
+    {
+      ninjaObjects.changeAnimation('idle');
+      ninjaObjects.velocity.x = 0;
+    }
+
+    if(keyDown('a'))
+    {
+      ninjaObjects.changeAnimation('run');
+      ninjaObjects.velocity.x -= .5;
+      if(ninjaObjects.collide(bush))
+      {
+        ninjaObjects.changeAnimation('idle');
+      }
+    }
+    else
+    {
+      ninjaObjects.changeAnimation('idle');
+      ninjaObjects.velocity.x = 0;
+    }
+
+    if(keyDown('s'))
+    {
+      ninjaObjects.changeAnimation('run');
+      ninjaObjects.velocity.y -= .5;
+      if(ninjaObjects.collide(bush))
+      {
+        ninjaObjects.changeAnimation('idle');
+      }
+    }
+    else
+    {
+      ninjaObjects.changeAnimation('idle');
+      ninjaObjects.velocity.x = 0;
+    }
 
     if(keyDown('d'))
     {
