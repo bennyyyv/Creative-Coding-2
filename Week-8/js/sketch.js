@@ -1,5 +1,7 @@
-var x = 0;
-var y = 0;
+var x = 100;
+var y = -100;
+var w = 100;
+var h = 100;
 
 function setup() {
   createCanvas(800, 600, WEBGL);
@@ -9,24 +11,47 @@ function setup() {
 function draw() {
   background(120);
   normalMaterial();
-
-  createBox(150, 150, 150, -100, -100, true);
+//objects
+  createBox(w, h, 150, x, y, true);
   createTorus();
   createBox(50, 50, 50, 250, 50, false);
+  createSphere();
+  createBox(150, 250, 50, -200, -10, false);
+  //scale
   if (keyIsPressed) {
-    if (key == 'd') { // move the right
+    if (key == 'd') {
       x += 5;
 
-    } else if (key == 'a') { // move to the left
+    } else if (key == 'a') {
 
       x -= 5;
 
     }
+    if (keyIsPressed) {
+      if (key == 's') {
+        y += 5;
+
+      } else if (key == 'w') {
+
+        y -= 5;
+
+      }
+}
+}
+if (keyIsPressed) {
+  if (key == 'q') {
+    w += 5;
+    h += 5;
+
+  } else if (key == 'r') {
+    w -= 5;
+    h -= 5;
+
   }
 }
 
-// this allows us to create any type of box
-function createBox(w, h, d, transX, transY, move) {
+//object functions
+function createBox(w, h, d, transX, transY, move,) {
   push();
   if (move) {
     translate(transX + x, transY);
@@ -41,8 +66,6 @@ function createBox(w, h, d, transX, transY, move) {
 
 
 }
-
-// this creates a single torus
 function createTorus() {
   push();
   translate(100, 100);
@@ -50,4 +73,13 @@ function createTorus() {
   rotateY(frameCount * 0.01);
   torus(50, 15, 24, 16);
   pop();
+}
+function createSphere() {
+  push();
+  translate(100, 100);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  sphere(10, 15, 15);
+  pop();
+}
 }
