@@ -1,1 +1,12 @@
-dfgdfgdfgdfhdfh
+TinkerCad's circuit and code blocks are a really easy way to learn and become familiar with
+circuits and simple code. In high school I had to take a class that involved 3D modeling and
+printing and circuits and I think we used a really old version of Autodesk Inventor and it was
+super hard to learn and there were so many weird features and no tutorials because it assumed
+you were a professional and not a student. If we would've had TinkerCad it would've been so much
+easier to learn how to model things on a computer. TinkerCad also makes circuits really easy
+because it shows you what's wrong and does a lot of the calculating for you. I remember having
+to break out the calculator quite a bit when figuring out what resistor to use and TinkerCad
+takes a lot of that tedious work and does it for you. I think we did something with code blocks
+either in this class or in Creative Coding I but TinkerCad's code blocks allow for a lot of
+creativity and there are a lot of options for you to combine code and circuits and other elements
+together to create a working project. 
