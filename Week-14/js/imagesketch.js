@@ -59,9 +59,10 @@ function writeColor(image, x, y, red, green, blue, alpha)
       }
       y--;
     }
-  //draw shapes
+
     xCoord = 50;
     yCoord = 50;
+      //draw shapes
     for (var i = 0; i < 5; i++) {
         for(var j = 0; j < 7; j++)
         {
