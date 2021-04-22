@@ -13,18 +13,18 @@ function writeColor(image, x, y, red, green, blue, alpha)
       image.pixels[index + 2] = blue;
       image.pixels[index + 3] = alpha;
     }
-//random shape generator
+//lines
     function drawShapes(number1, number2) {
       let startX = number1;
       let startY = number2;
       console.log(startX);
 
-      for (x = startX; x < startX + 70; x++) {
-        for (y = startY; y < startY + 70; y++) {
-          if (x > startX + 10 && x < startX + 25 && y > startY + 10 && y < startY + 25) {
-            writeColor(img, x, y, 50, 100, 50, floor(random(255)));
+      for (x = startX; x < startX + 5; x++) {
+        for (y = startY; y < startY + 200; y++) {
+          if (x > startX + 5 && x < startX + 2 && y > startY + 5 && y < startY + 2) {
+            writeColor(img, x, y, 255, 0, 34, 255);
           } else {
-            writeColor(img, x, y, 55, 20, 125, floor(random(255)));
+          writeColor(img, x, y, 255, 0, 34, 255);
           }
         }
       }
@@ -34,8 +34,8 @@ function writeColor(image, x, y, red, green, blue, alpha)
 //random fills
     for (y = 0; y < img.height; y++) {
       for (x = 0; x < img.width; x++) {
-        let red = random(255);
-        let green = random(255);
+        let red = random(50);
+        let green = random(50);
         let blue = random(255);
         let alpha = 255;
         writeColor(img, x, y, red, green, blue, alpha);
@@ -59,10 +59,10 @@ function writeColor(image, x, y, red, green, blue, alpha)
       }
       y--;
     }
-
     xCoord = 50;
     yCoord = 50;
       //draw shapes
+      
     for (var i = 0; i < 5; i++) {
         for(var j = 0; j < 7; j++)
         {
